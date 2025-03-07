@@ -214,6 +214,13 @@ class StudyAssistant:
         observer.start()
         logging.info("开始监控文件系统...")
 
+        # 持续运行
+        try:
+            while True:
+                pass
+        except KeyboardInterrupt:
+            observer.stop()
+
 
 if __name__ == "__main__":
     logging.info(CONFIG)
