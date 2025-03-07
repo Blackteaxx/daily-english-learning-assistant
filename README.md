@@ -61,7 +61,7 @@ OPENAI_API_KEY="sk-your-openai-key"
 2. 编辑`config.yaml`
 ```yaml
 monitor:
-  study_dir: "~/english_study"  # 监控目录路径
+  study_dir: "./study_records"  # 监控目录路径
 
 smtp:
   server: "smtp.gmail.com"     # 邮件服务商配置
