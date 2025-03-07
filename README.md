@@ -112,6 +112,10 @@ A) persistent  B) temporary  C) random
 ├── config.yaml            # 主配置文件
 ├── assistant.py           # 启动脚本
 └── english_study_helper.log      # 运行日志
+└── study_records          # 学习记录目录
+    ├── 20250224.md        # 学习记录文件
+    └── 20250225.md
+└── processed             # 已处理文件
 ```
 
 ## 授权许可 📜
