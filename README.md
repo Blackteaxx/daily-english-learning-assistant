@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ```
 
 ### 配置文件
-1. 复制`config.yaml`为`myconfig.yaml`
+1. 复制`config.yaml`为`my_config.yaml`
 ```bash
 SMTP_USER="your-email@example.com"
 SMTP_PASSWORD="app-password"
