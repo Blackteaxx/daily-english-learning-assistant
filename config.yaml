@@ -1,0 +1,32 @@
+# config.yaml
+monitor:
+  study_dir: "./study_records"
+  processed_dir: "./processed"
+  archive: true
+
+smtp:
+  server: "smtp.gmail.com"
+  port: 587
+  user: "${SMTP_USER}"  # 使用环境变量
+  password: "${SMTP_PASSWORD}"
+  to: "${MY_EMAIL}"
+
+llm:
+  api_key: "${OPENAI_API_KEY}"
+  model: "gpt-4-turbo"
+  prompt_template: |
+    你是一个专业英语学习助手，请根据以下英语学习记录生成测试题和复习指南：
+    {content}
+
+    要求：
+    1. 包含模块：题目、答案及解析、复习卡片、一句鼓励的话
+    2. 生成30道多种题型的测试题（填空、选择、翻译）
+    3. 创建包含重点语法和词汇的复习卡片
+    4. 生成尽可能详细的答案解析
+    5. 生成内容应具有逻辑性和连贯性
+    6. 输出格式为Markdown
+
+retry:
+  max_attempts: 3
+  delay_multiplier: 1
+  max_delay: 30

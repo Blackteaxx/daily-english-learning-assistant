@@ -1,0 +1,52 @@
+Brotli==1.1.0
+Markdown==3.7
+openai==1.65.4
+  anyio==4.8.0
+    idna==3.10
+    sniffio==1.3.1
+    typing_extensions==4.12.2
+  distro==1.9.0
+  httpx==0.28.1
+    anyio==4.8.0
+      idna==3.10
+      sniffio==1.3.1
+      typing_extensions==4.12.2
+    certifi==2025.1.31
+    httpcore==1.0.7
+      certifi==2025.1.31
+      h11==0.14.0
+    idna==3.10
+  jiter==0.8.2
+  pydantic==2.10.6
+    annotated-types==0.7.0
+    pydantic_core==2.27.2
+      typing_extensions==4.12.2
+    typing_extensions==4.12.2
+  sniffio==1.3.1
+  tqdm==4.67.1
+  typing_extensions==4.12.2
+pipdeptree==2.25.0
+  packaging==24.2
+  pip @ file:///croot/pip_1737991979965/work
+PyYAML==6.0.2
+schedule==1.2.2
+setuptools==75.8.0
+tenacity==9.0.0
+watchdog==6.0.0
+weasyprint==64.1
+  cffi==1.17.1
+    pycparser==2.22
+  cssselect2==0.8.0
+    tinycss2==1.4.0
+      webencodings==0.5.1
+    webencodings==0.5.1
+  fonttools==4.56.0
+  pillow==11.1.0
+  pydyf==0.11.0
+  pyphen==0.17.2
+  tinycss2==1.4.0
+    webencodings==0.5.1
+  tinyhtml5==2.0.0
+    webencodings==0.5.1
+wheel==0.45.1
+zopfli==0.2.3.post1
