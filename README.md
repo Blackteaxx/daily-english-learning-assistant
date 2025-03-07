@@ -46,7 +46,7 @@ llm:
 conda create -n learning-assistant python=3.12
 conda activate learning-assistant
 # Python库
-pip install watchdog python-dotenv pdfkit pyyaml
+pip install -r requirements.txt
 ```
 
 ### 配置文件
