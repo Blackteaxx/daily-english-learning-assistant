@@ -81,6 +81,11 @@ class FileHandler(FileSystemEventHandler):
             try:
                 # 调用StudyAssistant的处理方法
                 self.assistant.process_file(event.src_path)
+                # parent_dir = os.path.dirname(event.src_path)
+                # for file in os.listdir(parent_dir):
+                #     if file.endswith(".md"):
+                #         file_path = os.path.join(parent_dir, file)
+                #         self.assistant.process_file(file_path)
             except Exception as e:
                 logging.error(f"文件处理失败: {str(e)}")
 
@@ -122,7 +127,8 @@ class StudyAssistant:
             api_key=CONFIG["llm"]["api_key"], base_url=CONFIG["llm"]["base_url"]
         )
 
-        logging.info("Generating content from api")
+        logging.info(f"Generating content from {CONFIG['llm']['model']} api")
+
         response = client.chat.completions.create(
             model=CONFIG["llm"]["model"],
             messages=[
@@ -131,16 +137,18 @@ class StudyAssistant:
                     "content": CONFIG["llm"]["prompt_template"].format(content=content),
                 }
             ],
-            temperature=1,
+            temperature=CONFIG["llm"]["temperature"],
         )
-        return response.choices[0].message.content
+        content = response.choices[0].message.content
 
-    def send_email(self, content: str):
+        return content
+
+    def send_email(self, content: str, date_time: str):
         """发送优化样式的邮件"""
         msg = MIMEMultipart()
         msg["From"] = CONFIG["smtp"]["user"]
         msg["To"] = CONFIG["smtp"]["to"]
-        msg["Subject"] = f"📚 英语学习日报 - {datetime.now().strftime('%Y-%m-%d')}"
+        msg["Subject"] = f"📚 英语学习日报 - {date_time}"
 
         # 将Markdown转换为HTML
         html_content = markdown.markdown(content)
@@ -193,7 +201,8 @@ class StudyAssistant:
             study_material = self.generate_content(content)
 
             # 发送邮件
-            self.send_email(study_material)
+            date_time = file_path.split(".")[-2].split("/")[-1]
+            self.send_email(study_material, date_time)
 
             # 归档文件
             self.archive_file(file_path)
